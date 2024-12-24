@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SportsBNB - User Profile</title>
+</head>
+<body>
+    <header>SportsBNB</header>
+    <a href="/" class = "index">
+        <img src="" alt="index pic">
+    </a>
+    <div class="profile">
+        {% if pfp %}
+            <img src="{{pfp}}" alt="profile pic">
+        {% else %}
+            <img src="generic pfp photo" alt="profile pic">
+        {% endif %}
+        <h1>{{ logname }}</h1>
+        <p>{{ first_name }} {{ last_name }}</p>
+        <p>Joined {{ month }} {{ year }}</p>
+        <div class="links">
+            <a href="/accounts/edit/" class="edit">Edit profile</a>
+            <a href="/create_listing/" class = "edit">Create a Listing</a>
+            <form action="/accounts/logout/" method="post" enctype="multipart/form-data">
+                <input type="submit" name="logout" value="Logout"/>
+            </form>
+        </div>
+    </div>
+    <div class="listings">
+        <div class="listing-content">
+            {% if created_listings %}
+                {% for l in created_listings %}
+                    <div class="contentbx">
+                        <img src="{{ l.cover }}" alt="">
+                        <h2>{{ l.title }}</h2>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>You have no created listings.</p>
+            {% endif %}
+        </div>
+        <div class="listing-content">
+            {% if reserved_listings %}
+                {% for r in reserved_listings %}
+                    <div class="contentbx">
+                        <img src="{{ r.cover }}" alt="">
+                        <h2>{{ r.title }}</h2>
+                        <p>{{ r.date }} @ {{ r.start_time }}-{{ r.end_time }}</p>
+                        <p>{{ r.price }}</p>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>You have no reserved listings.</p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
