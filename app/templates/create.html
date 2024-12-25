@@ -3,9 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>SportsBNB</title>
 </head>
 <body>
-    
+    <header>SportsBNB</header>
+    <a href="/" class = "index">
+        <img src="" alt="index pic">
+    </a>
+    <form action="/accounts/?target=/" method="post" enctype="multipart/form-data">
+        <p>Email: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="email" required /></p>
+        <p>Password: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="password" name="password" required /></p>
+        <p>First Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="firstname" required /></p>
+        <p>Last Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="lastname" required /></p>
+        <p>Location: &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="location" required /></p>
+        <input type="submit" name="signup" value="sign up" />
+        <input type="hidden" name="operation" value="create" />
+    </form>
+    <p>Already have an account? <a href="/accounts/login/"><b>Log in</b></a></p>
 </body>
 </html>

@@ -2,7 +2,7 @@
 
 import flask #type: ignore
 import app
-import mongo
+from app import mongo
 
 @app.a.route("/user/",  methods=["GET"])
 def my_user():
@@ -17,15 +17,14 @@ def my_user():
 
     #User Information
     query = {"email": logname}
-    user = users.find(query)
-    for u in user:
-        first_name = u['name']['first']
-        last_name = u['name']['last']
-        month_joined = u['month']
-        year_joined = u['year']
-        location = u.get('location')
-        pfp = u.get('pfp')
-        uid = users['_id']
+    user = users.find_one(query)
+    first_name = user['name']['first']
+    last_name = user['name']['last']
+    month_joined = user['month']
+    year_joined = user['year']
+    location = user.get('location')
+    pfp = user.get('pfp')
+    uid = user['_id']
 
     #Owned Listings
     listings = db['listings']
@@ -43,10 +42,9 @@ def my_user():
     for x in reservations:
         lid = x['listing_id']
         query = {"_id": lid}
-        listing = listings.find(query)
-        for x in listing:
-            title = x['title']
-            cover = x['cover_photo']
+        listing = listings.find_one(query)
+        title = listing['title']
+        cover = listing['cover_photo']
         date = x['booking_date']
         start = x['time']['start']
         end = x['time']['end']

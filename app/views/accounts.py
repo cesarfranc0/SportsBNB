@@ -9,7 +9,7 @@ def login():
         return flask.redirect(flask.url_for("index"))
     return flask.render_template("login.html")
 
-@app.a.route('/accounts/create/', method=['GET'])
+@app.a.route('/accounts/create/', methods=['GET'])
 def create():
     if 'logname' in flask.session:
         return flask.redirect(flask.url_for("index"))
