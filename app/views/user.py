@@ -12,8 +12,8 @@ def my_user():
     logname = flask.session["logname"]
 
     client = mongo.connection()
-    db = client['mydatabase'] #EDIT THIS
-    users = db['users'] #EDIT THIS
+    db = client['db']
+    users = db['users']
 
     #User Information
     query = {"email": logname}

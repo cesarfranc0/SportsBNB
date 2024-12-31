@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SportsBNB</title>
+</head>
+<body>
+    <header>SportsBNB</header>
+    <a href="/" class = "index">
+        <img src="" alt="index pic">
+    </a>
+    <div class="listing">
+        <img src="{{ cover }}" alt="">
+        <h1>{{ title }} </h1>
+        <p>Hosted By {{ name }}</p>
+        <p> {{ description }} </p>
+        <p>{{ address }}, {{ city}}, {{ state }}</p>
+        <div class="avail">
+            <p>Price: ${{ price }}</p>
+            <h2>Available Times:</h2>
+            {% for time in availability %}
+                <div class="timebx">
+                    <h2> {{ time.date }} </h2>
+                    <p> {{ time.start }} - {{ time.end }} </p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

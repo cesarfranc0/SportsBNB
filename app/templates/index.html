@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SportsBNB</title>
+</head>
+<body>
+    <header>SportsBNB</header>
+    <a href="/" class = "index">
+        <img src="" alt="index pic">
+    </a>
+    <a href="/user/">User Profile</a>
+    <form action="/" method="GET" class="search_bar">
+        <input type="text" name="state" value ="{{ request.args.get('state', '') }}" placeholder="New York"/>
+    </form>
+    <div class="feed">
+        {% for list in listings %}
+            <div class="listing">
+                <a href="/listing/{{ list.id }}">
+                    <img src="{{ list.cover }}" alt="listing pic">
+                </a>
+                <div class="listing_info">
+                    <a href="/listing/{{ list.id }}">
+                        <h2>{{ list.title }}</h2>
+                    </a>
+                    <p>{{ list.address }}, {{ list.city}}, {{ list.state }}</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    // convert this to react
+</body>
+</html>
